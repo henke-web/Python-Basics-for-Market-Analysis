@@ -21,8 +21,8 @@ for book in books:
 
     divs = product_soup.find_all('tr')
     upc = (divs[0].get_text().replace('UPC', '')).replace('\n', '')
-    Price_excl_tax = (divs[2].get_text().replace('Price (excl. tax)', '')).replace('\n', '')
-    Price_incl_tax = (divs[3].get_text().replace('Price (incl. tax)', '')).replace('\n', '')
+    price_excl_tax = (divs[2].get_text().replace('price (excl. tax)', '')).replace('\n', '')
+    price_incl_tax = (divs[3].get_text().replace('price (incl. tax)', '')).replace('\n', '')
     tax = (divs[4].get_text())
     In_stocks = (divs[5].get_text().replace('Availability', '').replace('In stock ', '')).replace('\n', '')
     Number_reviews = (divs[6].get_text())
@@ -43,33 +43,33 @@ for book in books:
     partial_image_url = image_src[2]
     full_image_url = 'http://books.toscrape.com/' + partial_image_url
 
-    Page_url = f'Product page url: {product_page_url}'
-    UPC = f'UPC: {upc}'
-    Title = f'Title: {title}'
-    Price_with_tax = f'Price Incl Tax: {Price_incl_tax}'
-    Price_no_tax = f'Price Excl Tax: {Price_excl_tax}'
-    Availability = f'Availability: {In_stocks}'
-    Description = f'Product description: {product_description}'
-    Category = f'Category: {category}'
-    Stars = f'Star rating: {Star_rating}'
+    all_page_url = f'Product page url: {product_page_url}'
+    all_upc = f'UPC: {upc}'
+    all_title = f'Title: {title}'
+    all_price_with_tax = f'Price Incl Tax: {price_incl_tax}'
+    all_price_no_tax = f'Price Excl Tax: {price_excl_tax}'
+    all_stocks = f'Availability: {In_stocks}'
+    full_description = f'Product description: {product_description}'
+    all_category = f'Category: {category}'
+    all_stars = f'Star rating: {Star_rating}'
     img_url = f'Img url:{full_image_url}'
 
     with open('Fullpage.csv', mode='a+') as product_file:
         product_writer = csv.writer(product_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
 
-        product_writer.writerow([Page_url, UPC, Title, Price_with_tax, Price_no_tax, Availability, Description, Category, Stars, full_image_url, ])
+        product_writer.writerow([all_page_url, all_upc, all_title, all_price_with_tax, all_price_no_tax, all_stocks, full_description, all_category, all_stars, full_image_url, ])
 
-#    print(Page_url)
-#    print(UPC)
-#    print(Title)
-#    print(Price_with_tax)
-#    print(Price_no_tax)
-#    print(Availability)
-#    print(Description)
-#    print(Category)
-#    print(Stars)
-#    print(img_url)
+    print(all_page_url)
+    print(all_upc)
+    print(all_title)
+    print(all_price_with_tax)
+    print(all_price_no_tax)
+    print(all_stocks)
+    print(full_description)
+    print(all_category)
+    print(all_stars)
+    print(img_url)
 
 
 
