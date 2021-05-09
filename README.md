@@ -14,6 +14,6 @@
 
 - To share your project or run it on another machine you can create a requirement.txt file witch will contain all packages of your project.
 
-- How to create the .txt file you have to first active virtual enviroment, then you will have to type in prompt: (pip freeze > requirement.txt) This will create a text file with all requirements.
+- How to create the .txt file you have to first active virtual enviroment, then you will have to type in prompt: `pip freeze > requirement.txt` This will create a text file with all requirements.
 
 - To run the .txt file type in prompt: `pip install -r (and name of the .txt file) requirement.txt`
