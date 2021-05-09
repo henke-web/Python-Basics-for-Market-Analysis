@@ -52,7 +52,7 @@ for book in books:
     full_description = f'Product description: {product_description}'
     all_category = f'Category: {category}'
     all_stars = f'Star rating: {Star_rating}'
-    img_url = f'Img url:{full_image_url}'
+    img_url = f'Img url:{full_image_url}''\n'
 
     with open('Fullpage.csv', mode='a+') as product_file:
         product_writer = csv.writer(product_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
