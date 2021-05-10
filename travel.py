@@ -24,8 +24,8 @@ for book in books:
     price_excl_tax = (divs[2].get_text().replace('price (excl. tax)', '')).replace('\n', '')
     price_incl_tax = (divs[3].get_text().replace('price (incl. tax)', '')).replace('\n', '')
     tax = (divs[4].get_text())
-    In_stocks = (divs[5].get_text().replace('Availability', '').replace('In stock ', '')).replace('\n', '')
-    Number_reviews = (divs[6].get_text())
+    in_stocks = (divs[5].get_text().replace('Availability', '').replace('In stock ', '')).replace('\n', '')
+    number_reviews = (divs[6].get_text())
 
     descri = product_soup.find_all('p')
     product_description = (descri[3].get_text())
@@ -36,7 +36,7 @@ for book in books:
     product_main = product_soup.find(class_='col-sm-6 product_main')
     all_p = product_main('p')
     ptag = (all_p[-1])
-    Star_rating = ptag.get('class')
+    star_rating = ptag.get('class')
 
     image_url = product_soup.find('img')
     image_src = image_url.get('src').split('../')
@@ -48,10 +48,10 @@ for book in books:
     all_title = f'Title: {title}'
     all_price_with_tax = f'Price Incl Tax: {price_incl_tax}'
     all_price_no_tax = f'Price Excl Tax: {price_excl_tax}'
-    all_stocks = f'Availability: {In_stocks}'
+    all_stocks = f'Availability: {in_stocks}'
     full_description = f'Product description: {product_description}'
     all_category = f'Category: {category}'
-    all_stars = f'Star rating: {Star_rating}'
+    all_stars = f'Star rating: {star_rating}'
     img_url = f'Img url:{full_image_url}''\n'
 
     with open('Fullpage.csv', mode='a+') as product_file:
