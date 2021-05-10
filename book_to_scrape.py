@@ -38,7 +38,7 @@ for categor in cats:
                 price_incl_tax = (divs[3].get_text().replace('Price (incl. tax)', '')).replace('\n', '')
                 tax = (divs[4].get_text())
                 in_stocks = (divs[5].get_text().replace('Availability', '').replace('In stock ', '')).replace('\n', '')
-                Number_reviews = (divs[6].get_text())
+                number_reviews = (divs[6].get_text())
 
                 descri = product_soup.find_all('p')
                 product_description = (descri[3].get_text())
